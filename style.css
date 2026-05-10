@@ -1,0 +1,427 @@
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Alumni Sans', sans-serif;
+
+    background: #FAF9F6;
+    color: #0F3C46;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   VARIABLES
+========================= */
+
+:root {
+
+    --primary: #135A67;
+    --primary-dark: #0F3C46;
+
+    --accent: #FF9600;
+
+    --bg: #FAF9F6;
+    --bg-soft: #F5F0E8;
+
+    --text: #16343B;
+    --text-light: #5D7277;
+
+    --border: rgba(15, 60, 70, 0.08);
+
+    --shadow:
+        0 10px 40px rgba(15, 60, 70, 0.06);
+
+    --transition: 0.35s ease;
+
+    --radius: 20px;
+}
+
+
+/* =========================
+   CONTAINER
+========================= */
+
+.container {
+
+    width: min(1440px, 92%);
+    margin: 0 auto;
+}
+
+
+/* =========================
+   HEADER
+========================= */
+
+.header {
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    z-index: 1000;
+
+    background: rgba(250, 249, 246, 0.82);
+
+    backdrop-filter: blur(18px);
+
+    border-bottom:
+        1px solid rgba(15, 60, 70, 0.05);
+
+    transition: var(--transition);
+}
+
+
+/* =========================
+   HEADER CONTAINER
+========================= */
+
+.header-container {
+
+    height: 92px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 40px;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+
+    display: flex;
+    align-items: center;
+
+    flex-shrink: 0;
+
+    text-decoration: none;
+}
+
+.logo img {
+
+    height: 52px;
+    width: auto;
+
+    display: block;
+
+    transition: var(--transition);
+}
+
+.logo:hover img {
+
+    opacity: 0.82;
+}
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+.nav {
+
+    display: flex;
+    align-items: center;
+
+    gap: 34px;
+}
+
+.nav a {
+
+    position: relative;
+
+    font-size: 1.3rem;
+    font-weight: 500;
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    transition: var(--transition);
+}
+
+
+/* underline animation */
+
+.nav a::after {
+
+    content: "";
+
+    position: absolute;
+
+    left: 0;
+    bottom: -6px;
+
+    width: 0%;
+    height: 1px;
+
+    background: var(--accent);
+
+    transition: var(--transition);
+}
+
+.nav a:hover {
+
+    color: var(--accent);
+}
+
+.nav a:hover::after {
+
+    width: 100%;
+}
+
+
+/* =========================
+   RIGHT SIDE
+========================= */
+
+.header-right {
+
+    display: flex;
+    align-items: center;
+
+    gap: 20px;
+}
+
+
+/* =========================
+   SOCIAL BUTTONS
+========================= */
+
+.socials {
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+}
+
+.social-btn {
+
+    height: 42px;
+
+    padding: 0 18px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 999px;
+
+    background: white;
+
+    border:
+        1px solid rgba(15, 60, 70, 0.08);
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 1.05rem;
+    font-weight: 600;
+
+    transition: var(--transition);
+}
+
+.social-btn:hover {
+
+    transform: translateY(-2px);
+
+    border-color: var(--accent);
+
+    color: var(--accent);
+
+    box-shadow: var(--shadow);
+}
+
+
+/* =========================
+   PHONE
+========================= */
+
+.phone {
+
+    color: var(--text);
+
+    text-decoration: none;
+
+    font-size: 1.2rem;
+    font-weight: 600;
+
+    transition: var(--transition);
+
+    white-space: nowrap;
+}
+
+.phone:hover {
+
+    color: var(--accent);
+}
+
+
+/* =========================
+   CTA BUTTON
+========================= */
+
+.consultation-btn {
+
+    height: 52px;
+
+    padding: 0 28px;
+
+    border: none;
+
+    border-radius: 999px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-family: inherit;
+
+    font-size: 1.15rem;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: var(--transition);
+
+    box-shadow: var(--shadow);
+}
+
+.consultation-btn:hover {
+
+    background: var(--primary-dark);
+
+    transform: translateY(-3px);
+}
+
+
+/* =========================
+   MOBILE MENU BUTTON
+========================= */
+
+.burger {
+
+    display: none;
+
+    width: 46px;
+    height: 46px;
+
+    border: none;
+
+    background: transparent;
+
+    cursor: pointer;
+}
+
+
+/* =========================
+   STICKY EFFECT
+========================= */
+
+.header.scrolled {
+
+    background: rgba(250, 249, 246, 0.94);
+
+    box-shadow:
+        0 8px 30px rgba(15, 60, 70, 0.05);
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 1200px) {
+
+    .nav {
+
+        gap: 22px;
+    }
+
+    .nav a {
+
+        font-size: 1.15rem;
+    }
+
+    .phone {
+
+        display: none;
+    }
+}
+
+
+@media (max-width: 992px) {
+
+    .nav {
+
+        display: none;
+    }
+
+    .socials {
+
+        display: none;
+    }
+
+    .consultation-btn {
+
+        display: none;
+    }
+
+    .burger {
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+    }
+
+    .logo img {
+
+        height: 44px;
+    }
+
+    .header-container {
+
+        height: 82px;
+    }
+}
+
+
+@media (max-width: 576px) {
+
+    .container {
+
+        width: 94%;
+    }
+
+    .header-container {
+
+        gap: 16px;
+    }
+
+    .logo img {
+
+        height: 38px;
+    }
+}
